@@ -107,10 +107,6 @@ form {
     margin-left: 20px;
 }
 
-.title {
-    margin-bottom: 15px;
-}
-
 .description {
     color: var(--dark-grey);
     margin-bottom: 15px;

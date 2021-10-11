@@ -1,8 +1,10 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"html/template"
+	"log"
 	"net/http"
 	"net/url"
 	"os"
@@ -10,6 +12,7 @@ import (
 )
 
 var tpl = template.Must(template.ParseFiles("index.html"))
+var apiKey *string
 
 func indexHandler(w http.ResponseWriter, r *http.Request) {
 	tpl.Execute(w, nil)
@@ -35,6 +38,13 @@ func searchHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+	apiKey = flag.String("apikey", "", "Newsapi.org access key")
+	flag.Parse()
+
+	if *apiKey == "" {
+		log.Fatal("apiKey must be set")
+	}
+
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = "3000"

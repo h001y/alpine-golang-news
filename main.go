@@ -64,3 +64,9 @@ type Article struct {
 	PublishedAt time.Time `json:"publishedAt"`
 	Content     string    `json:"content"`
 }
+
+type Results struct {
+	Status       string    `json:"status"`
+	TotalResults int       `json:"totalResults"`
+	Articles     []Article `json:"articles"`
+}

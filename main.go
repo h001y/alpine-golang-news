@@ -70,3 +70,10 @@ type Results struct {
 	TotalResults int       `json:"totalResults"`
 	Articles     []Article `json:"articles"`
 }
+
+type Search struct {
+	SearchKey  string
+	NextPage   int
+	TotalPages int
+	Results    Results
+}
